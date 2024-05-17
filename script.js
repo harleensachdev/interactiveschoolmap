@@ -91,7 +91,7 @@ function changeFloor(floor) {
   const currentMap = document.getElementById('current-map');
   currentMap.style.width = "1000px"; 
   currentMap.style.height = "500px"; 
-}
+  currentMap.src = `${floor}_map.png`;}
 
 function displayInstructions(start, destination, floor) {
 
@@ -255,6 +255,7 @@ function navigate() {
 
   }
 
+
   let formattedInstructions = '';
   instructions.forEach((instruction, index) => {
     formattedInstructions += `${index + 1}. ${instruction}\n\n`;
@@ -266,6 +267,7 @@ function navigate() {
 
   console.log(formattedInstructions);
 }
+
 
 window.onload = () => {
   generateBlockButtons();
