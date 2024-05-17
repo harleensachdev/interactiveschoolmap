@@ -277,6 +277,6 @@ window.onload = () => {
   const navigateButton = document.createElement('button');
   navigateButton.textContent = '';
   navigateButton.addEventListener('click', navigate);
-  document.body.appendChild(navigateButton);
+
 
 };
