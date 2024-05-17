@@ -11,12 +11,12 @@ const blockFloors = {
   "Drop-off & Pick-up Zone": [],
 };
 
-let startPointBlock = ''; // Variable to store the starting point block
-let destinationPointBlock = ''; // Variable to store the destination point block
+let startPointBlock = ''; 
+let destinationPointBlock = ''; 
 
 function generateFloorButtons(block, containerId) {
   const floorButtonsContainer = document.getElementById(containerId);
-  floorButtonsContainer.innerHTML = ''; // Clear previous content
+  floorButtonsContainer.innerHTML = ''; 
 
   const floors = blockFloors[block];
   if (floors && floors.length > 0) {
@@ -40,7 +40,7 @@ function generateBlockDropdown(blocks, containerId) {
   container.innerHTML = '';
 
   const select = document.createElement('select');
-  select.id = containerId + '-dropdown'; // Ensure unique ID
+  select.id = containerId + '-dropdown';
   if (containerId === 'start-point-container') {
     select.innerHTML = '<option value="">Choose your starting block...</option>';
 
@@ -89,9 +89,8 @@ function generateBlockButtons() {
 
 function changeFloor(floor) {
   const currentMap = document.getElementById('current-map');
-  currentMap.style.width = "1000px"; // Set the map image width to 100% of its container
-  currentMap.style.height = "500px"; // Allow the map image height to adjust automatically based on its width
-  currentMap.src = `${floor}_map.png`;
+  currentMap.style.width = "1000px"; 
+  currentMap.style.height = "500px"; 
 }
 
 function displayInstructions(start, destination, floor) {
@@ -100,77 +99,76 @@ function displayInstructions(start, destination, floor) {
 
   alert(instructions);
   console.log(destination);
-  console.log(instructions); // For debugging purposes
+  console.log(instructions);
 }
 
 function findBlock() {
   const roomNumberInput = document.getElementById('room-number').value;
 
-  let block = ""; // Set the default block to empty
+  let block = ""; 
   let floor = "";
-  // Logic to determine the block based on the room number entered
-  if (roomNumberInput.startsWith('G')) {
+    if (roomNumberInput.startsWith('G')) {
     block = "Secondary Block";
-    floor = "Ground Floor (G)"; // If room number starts with L, F, M, or S, user is in the main floor
+    floor = "Ground Floor (G)"; 
     alert("This is on the Ground Floor (Secondary Maths) in the Secondary Block. Press ok to be directed to the map of the floor");
     changeFloor(floor);
   } else if (roomNumberInput.startsWith('F')) {
     block = "Secondary Block";
-    floor = "First Floor (F)"; // If room number starts with L, F, M, or S, user is in the main floor
+    floor = "First Floor (F)"; 
     alert("This is on the F Floor (Secondary English) in the Secondary Block. Press ok to be directed to the map of the floor");
     changeFloor(floor);
   } else if (roomNumberInput.startsWith('S')) {
     block = "Secondary Block";
-    floor = "Second Floor (S)"; // If room number starts with L, F, M, or S, user is in the main floor
+    floor = "Second Floor (S)"; 
     alert("This is on the S Floor (Secondary Humanities) in the Secondary Block. Press ok to be directed to the map of the floor");
     changeFloor(floor);
   } else if (roomNumberInput.startsWith('L')) {
     block = "Secondary Block";
-    floor = "Lower Floor (L)"; // If room number starts with L, F, M, or S, user is in the main floor
+    floor = "Lower Floor (L)"; 
     alert("This is on the L Floor (Secondary Science) in the Secondary Block. Press ok to be directed to the map of the floor")
     changeFloor(floor);
   } else if (roomNumberInput.startsWith('B')) {
     block = "Secondary Block";
-    floor = "Basement Floor (B)"; // If room number starts with L, F, M, or S, user is in the main floor
+    floor = "Basement Floor (B)";
     alert("This is on the B Floor (Sixth Form Center) in the Secondary Block. Press ok to be directed to the map of the floor")
     changeFloor(floor);
   } else if (roomNumberInput.startsWith('M')) {
     block = "Centre Block";
-    floor = "Ground Floor"; // If room number starts with L, F, M, or S, user is in the main floor
+    floor = "Ground Floor"; 
     alert("This is on the Ground Floor in the the Centre Block. Press ok to be directed to the map of the floor")
     changeFloor(floor);
   } else if (roomNumberInput.startsWith('C')) {
     block = "Centre Block";
-    floor = "Second Floor"; // If room number starts with L, F, M, or S, user is in the main floor
+    floor = "Second Floor"; 
     alert("This is on the Second Floor in the the Centre Block. Press ok to be directed to the map of the floor")
     changeFloor(floor);
   } else if (roomNumberInput.startsWith('2')) {
     block = "Arts Block";
-    floor = "Second Floor (Secondary art)"; // If room number starts with L, F, M, or S, user is in the main floor
+    floor = "Second Floor (Secondary art)";
     alert("This is on the Second Floor (Secondary art) in the the Arts Block. Press ok to be directed to the map of the floor.")
     changeFloor(floor);
   } 
   else if (roomNumberInput.startsWith('AS')) {
     block = "Arts Block";
-    floor = "Second Floor (Secondary art)"; // If room number starts with L, F, M, or S, user is in the main floor
+    floor = "Second Floor (Secondary art)"; 
     alert("This is on the Second Floor (Secondary art) in the the Arts Block. Press ok to be directed to the map of the floor.")
     changeFloor(floor);
   }
   else if (roomNumberInput.startsWith('DT')) {
     block = "Arts Block";
-    floor = "Fifth Floor (Secondary DT)"; // If room number starts with L, F, M, or S, user is in the main floor
+    floor = "Fifth Floor (Secondary DT)"; 
     alert("This is on the Fifth Floor (Secondary DT) in the the Arts Block. Press ok to be directed to the map of the floor")
     changeFloor(floor);
   }
   else if (roomNumberInput.startsWith('3')) {
     block = "Arts Block";
-    floor = "Third Floor (Secondary music)"; // If room number starts with L, F, M, or S, user is in the main floor
+    floor = "Third Floor (Secondary music)"; 
     alert("This is on the Third Floor (Secondary music) in the the Arts Block. Press ok to be directed to the map of the floor")
     changeFloor(floor);
   } 
   else if (roomNumberInput.startsWith('4')) {
     block = "Arts Block";
-    floor = "Fourth Floor (Secondary drama)"; // If room number starts with L, F, M, or S, user is in the main floor
+    floor = "Fourth Floor (Secondary drama)"; 
     alert("This is on the Fourth Floor (Secondary drama) in the the Arts Block. Press ok to be directed to the map of the floor")
     changeFloor(floor);
   } 
@@ -182,7 +180,7 @@ function findBlock() {
 
 function navigate() {
   const instructionsContainer = document.getElementById('instructions-container');
-  instructionsContainer.innerHTML = ''; // Clear previous instructions
+  instructionsContainer.innerHTML = '';
 
   if (!startPointBlock || !destinationPointBlock) {
     alert("Please select both starting point and destination.");
@@ -195,12 +193,12 @@ function navigate() {
     instructions.push(`Your destination and starting block are the same. Click the ${startPointBlock} button above to view the maps of ${startPointBlock}.`);
   }else{
 
-  // If the starting block has more than one floor, instruct to go to the lowest floor
+
   if (blockFloors[destinationPointBlock].length > 1) {
     instructions.push("Go to the lowest floor of the block.");
   }
 
-  // Instruction to go to the main football field
+
   if (destinationPointBlock === "Sports Field") {
     instructions.push("You should be able to see the football field.");
   } else {
@@ -257,22 +255,18 @@ function navigate() {
 
   }
 
-  // Format instructions with numbers and empty lines
   let formattedInstructions = '';
   instructions.forEach((instruction, index) => {
     formattedInstructions += `${index + 1}. ${instruction}\n\n`;
   });
 
-  // Display instructions
   const instructionsParagraph = document.createElement('p');
   instructionsParagraph.textContent = formattedInstructions;
   instructionsContainer.appendChild(instructionsParagraph);
 
-  console.log(formattedInstructions); // For debugging purposes
+  console.log(formattedInstructions);
 }
 
-
-// Initialize the block buttons and dropdowns on page load
 window.onload = () => {
   generateBlockButtons();
   generateBlockDropdown(Object.keys(blockFloors), 'start-point-container');

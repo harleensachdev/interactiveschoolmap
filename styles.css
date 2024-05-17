@@ -154,25 +154,20 @@ select,
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 #map-section img {
-  /* Set the maximum width and height for the images to fit inside the container */
   max-width: 100%;
   max-height: 100%;
-  /* Ensure images maintain aspect ratio */
   height: auto;
-  /* Adjust the dimensions of the image if it doesn't fit */
   width: auto;
 }
 
 #map-container {
-  /* Set the desired width and height for the map container */
   width: 1300px;
   height: 700px;
-  /* Ensure overflow is hidden to prevent images from overflowing */
 
 }
 .map-image {
-  width: 200px; /* Set the desired width */
-  height: 200px; /* Set the desired height */
+  width: 200px; 
+  height: 200px; 
   border: 1px solid #ddd;
   border-radius: 8px;
 }
