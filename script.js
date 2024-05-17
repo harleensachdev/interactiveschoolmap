@@ -91,7 +91,7 @@ function changeFloor(floor) {
   const currentMap = document.getElementById('current-map');
   currentMap.style.width = "1000px"; 
   currentMap.style.height = "500px"; 
-  currentMap.src = `${floor}_map.png`;}
+  currentMap.src = `${floor}_map.png`;
 
 function displayInstructions(start, destination, floor) {
 
@@ -100,6 +100,7 @@ function displayInstructions(start, destination, floor) {
   alert(instructions);
   console.log(destination);
   console.log(instructions);
+}
 }
 
 function findBlock() {
