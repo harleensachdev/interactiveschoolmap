@@ -3,49 +3,95 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>School Map</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div id="block-buttons">
-  </div>
-
-  <div id="floor-buttons">
-  </div>
-
-  <div id="map-container">
-    <div id="map">
-      <img src="default_map.png" alt="School Map" id="current-map">
+  <main> 
+    <header>
+      <h1>School Map</h1>
+    </header>
+    <div id="content">
+      <section id="input-section">
+        <div id="room-input-container">
+          <input type="text" id="room-number" placeholder="Enter room number of room nearest to you, to check which block you are in">
+          <button onclick="findBlock()">Find Block</button>
+        </div>
+        <header2>
+          <h2>Choose block to see map of each floor of block</h2>
+        </header2>
+        <div id="block-buttons"></div>
+        <div id="floor-buttons"></div>
+        <header2>
+          <h2>School Navigation System</h2>
+        </header2>
+        <div id="navigation-inputs">
+          <div id="start-point-container">
+            <label for="start-point">Select Starting Point:</label>
+            <select id="start-point-dropdown">
+              <option value="">Choose your starting block...</option>
+              <option value="Main Guardhouse">Main Guardhouse</option>
+              <option value="Arts Block">Arts Block</option>
+              <option value="Sports Field">Sports Field</option>
+              <option value="Primary Block">Primary Block</option>
+              <option value="Adventure Playground">Adventure Playground</option>
+              <option value="Under Cover Basketball Court">Under Cover Basketball Court</option>
+              <option value="Centre Block">Centre Block</option>
+              <option value="Swimming Pool">Swimming Pool</option>
+              <option value="Secondary Block">Secondary Block</option>
+              <option value="Drop-off & Pick-up Zone">Drop-off & Pick-up Zone</option>
+            </select>
+            <div id="start-floor-buttons"></div>
+          </div>
+          <div id="destination-container">
+            <label for="destination">Select Destination:</label>
+            <select id="destination-dropdown">
+              <option value="Choose your destination block...">Choose your destination block...</option>
+              <option value="Main Guardhouse">Main Guardhouse</option>
+              <option value="Arts Block">Arts Block</option>
+              <option value="Sports Field">Sports Field</option>
+              <option value="Primary Block">Primary Block</option>
+              <option value="Adventure Playground">Adventure Playground</option>
+              <option value="Under Cover Basketball Court">Under Cover Basketball Court</option>
+              <option value="Centre Block">Centre Block</option>
+              <option value="Swimming Pool">Swimming Pool</option>
+              <option value="Secondary Block">Secondary Block</option>
+              <option value="Drop-off & Pick-up Zone">Drop-off & Pick-up Zone</option>
+            </select>
+            <div id="destination-floor-buttons"></div>
+          </div>
+        </div>
+        <button id="navigate-button" onclick="navigate()">Navigate/Display instructions</button>
+      </section>
+      <section id="instructions-container">
+      </section>
+      <section id="map-section">
+        <div id="map-container">
+            <img src="default_map.png" alt="School Map" id="current-map">
+            <!-- Images representing different floors -->
+            <img src="Ground Floor (Main Guardhouse)_map.png" alt="Ground Floor (Main Guardhouse)" id="main-guardhouse-ground-floor" style="display: none;">
+            <img src="First Floor (Main Guardhouse)_map.png" alt="First Floor (Main Guardhouse)" id="main-guardhouse-first-floor" style="display: none;">
+            <img src="Ground Floor (Arts Block)_map.png" alt="Ground Floor (Arts Block)" id="arts-block-ground-floor" style="display: none;">
+            <img src="First Floor (Arts Block)_map.png" alt="First Floor (Arts Block)" id="arts-block-first-floor" style="display: none;">
+            <img src="Second Floor (Arts Block)_map.png" alt="Second Floor (Arts Block)" id="arts-block-second-floor" style="display: none;">
+            <img src="Third Floor (Arts Block)_map.png" alt="Third Floor (Arts Block)" id="arts-block-third-floor" style="display: none;">
+            <img src="Fourth Floor (Arts Block)_map.png" alt="Fourth Floor (Arts Block)" id="arts-block-fourth-floor" style="display: none;">
+            <img src="Fifth Floor (Arts Block)_map.png" alt="Fifth Floor (Arts Block)" id="arts-block-fifth-floor" style="display: none;">
+            <img src="Sixth Floor (Arts Block)_map.png" alt="Sixth Floor (Arts Block)" id="arts-block-sixth-floor" style="display: none;">
+            <img src="Ground Floor (Y1 and Y2)_map.png" alt="Ground Floor (Primary Block)" id="primary-block-ground-floor" style="display: none;">
+            <img src="First Floor (Primary hall + library)_map.png" alt="First Floor (Primary Block)" id="primary-block-first-floor" style="display: none;">
+            <img src="Second Floor (Y3 and Y4)_map.png" alt="Second Floor (Primary Block)" id="primary-block-second-floor" style="display: none;">
+            <img src="Third Floor (Y5 and Y6)_map.png" alt="Third Floor (Primary Block)" id="primary-block-third-floor" style="display: none;">
+            <img src="Ground Floor_map.png" alt="Ground Floor (Centre Block)" id="centre-block-ground-floor" style="display: none;">
+            <img src="First Floor_map.png" alt="First Floor (Centre Block)" id="centre-block-first-floor" style="display: none;">
+            <img src="Basement Floor (B)_map.png" alt="Basement Floor (Secondary Block)" id="basement-floor-secondary-block" style="display: none;">
+            <img src="Lower Floor (L)_map.png" alt="Lower Floor (Secondary Block)" id="lower-floor-secondary-block" style="display: none;">
+            <img src="Ground Floor (G)_map.png" alt="Ground Floor (Secondary Block)" id="ground-floor-secondary-block" style="display: none;">
+            <img src="First Floor (F)_map.png" alt="First Floor (Secondary Block)" id="first-floor-secondary-block" style="display: none;">
+            <img src="Second Floor (S)_map.png" alt="Second Floor (Secondary Block)" id="second-floor-secondary-block" style="display: none;">
+        </div>
+      </section>
     </div>
-    <div id="player"></div>
-  </div>
-
-  <img src="" alt="Ground Floor (Main Guardhouse)" id="main-guardhouse-ground-floor" style="display: none;">
-  <img src="" alt="First Floor (Main Guardhouse)" id="main-guardhouse-first-floor" style="display: none;">
-
-  <img src="" alt="Ground Floor (Arts Block)" id="arts-block-ground-floor" style="display: none;">
-  <img src="" alt="First Floor (Arts Block)" id="arts-block-first-floor" style="display: none;">
-  <img src="" alt="Second Floor (Arts Block)" id="arts-block-second-floor" style="display: none;">
-  <img src="" alt="Third Floor (Arts Block)" id="arts-block-third-floor" style="display: none;">
-  <img src="" alt="Fourth Floor (Arts Block)" id="arts-block-fourth-floor" style="display: none;">
-  <img src="" alt="Fifth Floor (Arts Block)" id="arts-block-fifth-floor" style="display: none;">
-  <img src="" alt="Sixth Floor (Arts Block)" id="arts-block-sixth-floor" style="display: none;">
-
-  <img src="" alt="Ground Floor (Primary Block)" id="primary-block-ground-floor" style="display: none;">
-  <img src="" alt="First Floor (Primary Block)" id="primary-block-first-floor" style="display: none;">
-  <img src="" alt="Second Floor (Primary Block)" id="primary-block-second-floor" style="display: none;">
-  <img src="" alt="Third Floor (Primary Block)" id="primary-block-third-floor" style="display: none;">
-
-  <img src="" alt="Ground Floor (Centre Block)" id="centre-block-ground-floor" style="display: none;">
-  <img src="" alt="First Floor (Centre Block)" id="centre-block-first-floor" style="display: none;">
-
-  <img src="" alt="Basement Floor (Secondary Block)" id="secondary-block-basement-floor" style="display: none;">
-  <img src="" alt="Lower Floor (Secondary Block)" id="secondary-block-lower-floor" style="display: none;">
-  <img src="" alt="Ground Floor (Secondary Block)" id="secondary-block-ground-floor" style="display: none;">
-  <img src="" alt="First Floor (Secondary Block)" id="secondary-block-first-floor" style="display: none;">
-  <img src="" alt="Second Floor (Secondary Block)" id="secondary-block-second-floor" style="display: none;">
-
-
+  </main>
   <script src="script.js"></script>
 </body>
 </html>
