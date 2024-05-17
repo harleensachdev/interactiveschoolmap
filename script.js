@@ -135,7 +135,7 @@ function findBlock() {
     changeFloor(floor);
   } else if (roomNumberInput.startsWith('M')) {
     block = "Centre Block";
-    floor = "Ground Floor"; 
+    floor = "Ground Floor (Languages + Pool + Canteen + Courts)"; 
     alert("This is on the Ground Floor in the the Centre Block. Press ok to be directed to the map of the floor")
     changeFloor(floor);
   } else if (roomNumberInput.startsWith('C')) {
