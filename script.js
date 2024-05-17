@@ -274,5 +274,9 @@ window.onload = () => {
   generateBlockButtons();
   generateBlockDropdown(Object.keys(blockFloors), 'start-point-container');
   generateBlockDropdown(Object.keys(blockFloors), 'destination-container');
+  const navigateButton = document.createElement('button');
+  navigateButton.textContent = 'Navigate';
+  navigateButton.addEventListener('click', navigate);
+  document.body.appendChild(navigateButton);
 
 };
