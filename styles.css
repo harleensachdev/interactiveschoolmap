@@ -145,7 +145,7 @@ select,
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 1300px;
+  width: 1800px;
   height:700px;
   overflow: hidden;
   background: #fff;
@@ -161,7 +161,7 @@ select,
 }
 
 #map-container {
-  width: 1300px;
+  width: 1800px;
   height: 700px;
 
 }
