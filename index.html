@@ -13,17 +13,20 @@
     <div id="content">
       <section id="input-section">
         <div id="room-input-container">
-          <input type="text" id="room-number" placeholder="Enter room number of room nearest to you, to check which block you are in">
-          <button onclick="findBlock()">Find Block</button>
+          <input type="text" id="room-number" placeholder="Enter room number of room nearest to you or destination classroom, to check block it's in.  ">
+          <button onclick="findBlock()">Find Block (Secondary only)</button>
         </div>
-        <header2>
+        <div id="header2">
           <h2>Choose block to see map of each floor of block</h2>
-        </header2>
+        </div>
+
+        
         <div id="block-buttons"></div>
         <div id="floor-buttons"></div>
-        <header2>
+        <div id="header2">
           <h2>School Navigation System</h2>
-        </header2>
+        </div>
+
         <div id="navigation-inputs">
           <div id="start-point-container">
             <label for="start-point">Select Starting Point:</label>
@@ -68,15 +71,13 @@
         <div id="map-container">
             <img src="default_map.png" alt="School Map" id="current-map">
             <!-- Images representing different floors -->
-            <img src="Ground Floor (Main Guardhouse)_map.png" alt="Ground Floor (Main Guardhouse)" id="main-guardhouse-ground-floor" style="display: none;">
-            <img src="First Floor (Main Guardhouse)_map.png" alt="First Floor (Main Guardhouse)" id="main-guardhouse-first-floor" style="display: none;">
-            <img src="Ground Floor (Arts Block)_map.png" alt="Ground Floor (Arts Block)" id="arts-block-ground-floor" style="display: none;">
-            <img src="First Floor (Arts Block)_map.png" alt="First Floor (Arts Block)" id="arts-block-first-floor" style="display: none;">
-            <img src="Second Floor (Arts Block)_map.png" alt="Second Floor (Arts Block)" id="arts-block-second-floor" style="display: none;">
-            <img src="Third Floor (Arts Block)_map.png" alt="Third Floor (Arts Block)" id="arts-block-third-floor" style="display: none;">
-            <img src="Fourth Floor (Arts Block)_map.png" alt="Fourth Floor (Arts Block)" id="arts-block-fourth-floor" style="display: none;">
-            <img src="Fifth Floor (Arts Block)_map.png" alt="Fifth Floor (Arts Block)" id="arts-block-fifth-floor" style="display: none;">
-            <img src="Sixth Floor (Arts Block)_map.png" alt="Sixth Floor (Arts Block)" id="arts-block-sixth-floor" style="display: none;">
+            <img src="Ground Floor (Main Office)_map.png" alt="Ground Floor (Arts Block)" id="arts-block-ground-floor" style="display: none;">
+            <img src="First Floor (Primary Music)_map.png" alt="First Floor (Arts Block)" id="arts-block-first-floor" style="display: none;">
+            <img src="Second Floor (Secondary art)_map.png" alt="Second Floor (Arts Block)" id="arts-block-second-floor" style="display: none;">
+            <img src="Third Floor (Secondary music)_map.png" alt="Third Floor (Arts Block)" id="arts-block-third-floor" style="display: none;">
+            <img src="Fourth Floor (Secondary drama)_map.png" alt="Fourth Floor (Arts Block)" id="arts-block-fourth-floor" style="display: none;">
+            <img src="Fifth Floor (Secondary DT)_map.png" alt="Fifth Floor (Arts Block)" id="arts-block-fifth-floor" style="display: none;">
+            <img src="Sixth Floor (Finance office)_map.png" alt="Sixth Floor (Arts Block)" id="arts-block-sixth-floor" style="display: none;">
             <img src="Ground Floor (Y1 and Y2)_map.png" alt="Ground Floor (Primary Block)" id="primary-block-ground-floor" style="display: none;">
             <img src="First Floor (Primary hall + library)_map.png" alt="First Floor (Primary Block)" id="primary-block-first-floor" style="display: none;">
             <img src="Second Floor (Y3 and Y4)_map.png" alt="Second Floor (Primary Block)" id="primary-block-second-floor" style="display: none;">

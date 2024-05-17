@@ -5,9 +5,9 @@ const blockFloors = {
   "Primary Block": ["Ground Floor (Y1 and Y2)", "First Floor (Primary hall + library)", "Second Floor (Y3 and Y4)", "Third Floor (Y5 and Y6)"],
   "Adventure Playground": [],
   "Under Cover Basketball Court": [],
-  "Centre Block": ["Ground Floor", "First Floor"],
+  "Centre Block": ["Ground Floor (Languages + Pool + Canteen + Courts)", "First Floor (Grand Hall + Sports Hall)", "Second Floor (Business + Computing)"],
   "Swimming Pool": [],
-  "Secondary Block": ["Basement Floor (B)", "Math Floor (M)", "English Floor (F)", "Humanities Floor (S)"],
+  "Secondary Block": ["Basement Floor (B)", "Lower Floor (L)","Ground Floor (G)", "First Floor (F)", "Second Floor (S)"],
   "Drop-off & Pick-up Zone": [],
 };
 
@@ -112,29 +112,70 @@ function findBlock() {
   if (roomNumberInput.startsWith('G')) {
     block = "Secondary Block";
     floor = "Ground Floor (G)"; // If room number starts with L, F, M, or S, user is in the main floor
-    alert("You are on the Ground Floor (Secondary Maths) in the Secondary Block. Press ok to be directed to the map of the floor your on.");
+    alert("This is on the Ground Floor (Secondary Maths) in the Secondary Block. Press ok to be directed to the map of the floor");
     changeFloor(floor);
   } else if (roomNumberInput.startsWith('F')) {
     block = "Secondary Block";
     floor = "First Floor (F)"; // If room number starts with L, F, M, or S, user is in the main floor
-    alert("You are on the F Floor (Secondary English) in the Secondary Block. Press ok to be directed to the map of the floor your on.");
+    alert("This is on the F Floor (Secondary English) in the Secondary Block. Press ok to be directed to the map of the floor");
     changeFloor(floor);
   } else if (roomNumberInput.startsWith('S')) {
     block = "Secondary Block";
     floor = "Second Floor (S)"; // If room number starts with L, F, M, or S, user is in the main floor
-    alert("You are on the S Floor (Secondary Humanities) in the Secondary Block. Press ok to be directed to the map of the floor your on.");
+    alert("This is on the S Floor (Secondary Humanities) in the Secondary Block. Press ok to be directed to the map of the floor");
     changeFloor(floor);
   } else if (roomNumberInput.startsWith('L')) {
     block = "Secondary Block";
     floor = "Lower Floor (L)"; // If room number starts with L, F, M, or S, user is in the main floor
-    alert("You are on the L Floor (Secondary Science) in the Secondary Block. Press ok to be directed to the map of the floor your on.")
+    alert("This is on the L Floor (Secondary Science) in the Secondary Block. Press ok to be directed to the map of the floor")
     changeFloor(floor);
   } else if (roomNumberInput.startsWith('B')) {
     block = "Secondary Block";
     floor = "Basement Floor (B)"; // If room number starts with L, F, M, or S, user is in the main floor
-    alert("You are on the B Floor (Sixth Form Center) in the Secondary Block. Press ok to be directed to the map of the floor your on.")
+    alert("This is on the B Floor (Sixth Form Center) in the Secondary Block. Press ok to be directed to the map of the floor")
     changeFloor(floor);
-  } else {
+  } else if (roomNumberInput.startsWith('M')) {
+    block = "Centre Block";
+    floor = "Ground Floor"; // If room number starts with L, F, M, or S, user is in the main floor
+    alert("This is on the Ground Floor in the the Centre Block. Press ok to be directed to the map of the floor")
+    changeFloor(floor);
+  } else if (roomNumberInput.startsWith('C')) {
+    block = "Centre Block";
+    floor = "Second Floor"; // If room number starts with L, F, M, or S, user is in the main floor
+    alert("This is on the Second Floor in the the Centre Block. Press ok to be directed to the map of the floor")
+    changeFloor(floor);
+  } else if (roomNumberInput.startsWith('2')) {
+    block = "Arts Block";
+    floor = "Second Floor (Secondary art)"; // If room number starts with L, F, M, or S, user is in the main floor
+    alert("This is on the Second Floor (Secondary art) in the the Arts Block. Press ok to be directed to the map of the floor.")
+    changeFloor(floor);
+  } 
+  else if (roomNumberInput.startsWith('AS')) {
+    block = "Arts Block";
+    floor = "Second Floor (Secondary art)"; // If room number starts with L, F, M, or S, user is in the main floor
+    alert("This is on the Second Floor (Secondary art) in the the Arts Block. Press ok to be directed to the map of the floor.")
+    changeFloor(floor);
+  }
+  else if (roomNumberInput.startsWith('DT')) {
+    block = "Arts Block";
+    floor = "Fifth Floor (Secondary DT)"; // If room number starts with L, F, M, or S, user is in the main floor
+    alert("This is on the Fifth Floor (Secondary DT) in the the Arts Block. Press ok to be directed to the map of the floor")
+    changeFloor(floor);
+  }
+  else if (roomNumberInput.startsWith('3')) {
+    block = "Arts Block";
+    floor = "Third Floor (Secondary music)"; // If room number starts with L, F, M, or S, user is in the main floor
+    alert("This is on the Third Floor (Secondary music) in the the Arts Block. Press ok to be directed to the map of the floor")
+    changeFloor(floor);
+  } 
+  else if (roomNumberInput.startsWith('4')) {
+    block = "Arts Block";
+    floor = "Fourth Floor (Secondary drama)"; // If room number starts with L, F, M, or S, user is in the main floor
+    alert("This is on the Fourth Floor (Secondary drama) in the the Arts Block. Press ok to be directed to the map of the floor")
+    changeFloor(floor);
+  } 
+  
+  else {
     alert("Invalid room number or room not found.");
   }
 }
@@ -155,7 +196,7 @@ function navigate() {
   }else{
 
   // If the starting block has more than one floor, instruct to go to the lowest floor
-  if (blockFloors[startPointBlock] && blockFloors[destinationPointBlock].length > 1) {
+  if (blockFloors[destinationPointBlock].length > 1) {
     instructions.push("Go to the lowest floor of the block.");
   }
 
@@ -168,45 +209,50 @@ function navigate() {
 
   if (destinationPointBlock === "Main Guardhouse") {
     instructions.push("Turn left and walk up the small set of stairs on the walkway in front of you.");
-    instructions.push("Walk forward and turn to your right. You should see the main guardhouse on your left.");
+    instructions.push("Walk forward and turn to your right. You should see the main guardhouse in front of you, slightly to your left");
   }
 
   if (destinationPointBlock === "Arts Block") {
     instructions.push("Turn left and walk up the small set of stairs on the walkway in front of you.");
-    instructions.push("Walk forward and turn to your left. You should see a set of stairs leading up. Take these stairs. 1st Floor: Primary Music, 2nd Floor: Secondary Art, 3rd Floor: Secondary Music, 4th Floor: Secondary Drama, 5th Floor: Secondary DT, 6th Floor: Finance Office.");
+    instructions.push("Turn to your left. You should see a set of stairs leading up. Take these stairs. 1st Floor: Primary Music, 2nd Floor: Secondary Art, 3rd Floor: Secondary Music, 4th Floor: Secondary Drama, 5th Floor: Secondary DT, 6th Floor: Finance Office.");
   }
 
   if (destinationPointBlock === "Under Cover Basketball Court") {
-    instructions.push("Turn around and walk towards the right side of the field.");
+    instructions.push("Turn around completely and walk towards the right side of the field.");
     instructions.push("The basketball court should be in front of you.");
   }
 
   if (destinationPointBlock === "Secondary Block") {
-    instructions.push("Turn and walk towards your right.");
+    instructions.push("Walk towards your right.");
     instructions.push("Enter the covering. The sixth form center is in front of you. If you want to go to another floor in the block, take the staircase on your right. 1st Floor: Secondary Science, 2nd Floor: Secondary Maths, 3rd Floor: Secondary English, 4th Floor: Secondary Humanities (history + computer science).");
   }
 
   if (destinationPointBlock === "Swimming Pool") {
-    instructions.push("Turn around and walk towards the left side of the field.");
+    instructions.push("Turn around completely and walk towards the left side of the field.");
     instructions.push("The swimming pool should be in front of you. Entrance is through the changing room. You must ask a teacher's permission to enter the changing rooms.");
   }
 
   if (destinationPointBlock === "Centre Block") {
-    instructions.push("Turn around and walk towards the opening on the right side of the pool and the left side of the basketball court.");
-    instructions.push("Enter the covering. Walk up the stairs in front of you. The Grand Hall is to your right and the Sports Hall is to your left. If you want to go to business floors, turn left and go up the narrow set of stairs on your right.");
+    instructions.push("Turn around completely and walk towards the opening on the right side of the pool and the left side of the basketball court.");
+    instructions.push("Enter the covering. Walk up the stairs directly in front of you. The Grand Hall is to your right and the Sports Hall is to your left. If you want to go to business floors, turn left and go up the narrow set of stairs on your right.");
   }
 
   if (destinationPointBlock === "Adventure Playground") {
-    instructions.push("Turn around and walk towards the right side of the field. Walk on the pavement on the right side of the field. Walk forward, past the basketball court and into the canteen. Walk towards the road and turn right. Walk straight ahead, in front of you is the Adventure Playground.");
+    instructions.push("Turn around and walk towards the basketball court. ");
+    instructions.push("Walk on the pavement on the right side of the basketball court.")
+    instructions.push("Walk straight ahead, through the canteen, until you reach the road.")
+    instructions.push("Then, turn right, walk along the pavement parallel to road. In front of you, you should see the Adventure Playground. ")
   }
 
   if (destinationPointBlock === "Drop-off & Pick-up Zone") {
     instructions.push("Turn around and walk towards the opening on the right side of the pool and the left side of the basketball court.");
-    instructions.push("Enter the covering. Walk up the stairs in front of you. Turn right and walk across the corridor until you reach a set of stairs. Walk up these stairs. Turn right, you should see a road in front of you, where cars can drive through. Turn left and walk up the stairs to exit the school. This will lead you to Jaya Grocer.");
+    instructions.push("Enter the covering. Walk up the stairs in front of you. Turn right and walk across the corridor until you reach a set of stairs. ");
+    instructions.push("Walk up these stairs. Turn right immediatelu, you should see a road in front of you, where cars can drive through. Turn left and walk up the stairs to exit the school. This will lead you to Jaya Grocer.")
   }
 
   if (destinationPointBlock === "Primary Block") {
-    instructions.push("Turn around and walk towards the right side of the field. Walk on the pavement on the right side of the field. There should be a set of stairs that leads to a smaller field on the left of the big football field. You are now in the primary block.");
+    instructions.push("Turn around and walk towards the right side of the field (basketball court). Walk on the pavement on the right side of the field. There should be a small set of stairs that leads to a smaller field on the right of the big football field. ");
+    instructions.push('You are now in the primary block. Take the staircase on your left up. Ground Floor: Y1 and Y2. First Floor:  Primary Hall and Library. Second Floor: Y3 and Y4. Third Floor: Y5 and Y6.')
   }
 
   }
@@ -232,8 +278,4 @@ window.onload = () => {
   generateBlockDropdown(Object.keys(blockFloors), 'start-point-container');
   generateBlockDropdown(Object.keys(blockFloors), 'destination-container');
 
-  const navigateButton = document.createElement('button');
-  navigateButton.textContent = 'Navigate';
-  navigateButton.addEventListener('click', navigate);
-  document.body.appendChild(navigateButton);
 };
