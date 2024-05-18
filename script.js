@@ -195,9 +195,9 @@ function navigate() {
   }else{
 
 
-  if (blockFloors[destinationPointBlock].length > 1) {
+ 
     instructions.push("Go to the lowest floor of the block.");
-  }
+  
 
 
   if (destinationPointBlock === "Sports Field") {
